@@ -38,8 +38,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Adjust position of dropdown list
     const rect = inputElement.getBoundingClientRect();
-    dropdownList.style.top = `${rect.bottom + window.scrollY}px`;
-    dropdownList.style.left = `${rect.left + window.scrollX}px`;
+    dropdownList.style.top = `${rect.top + window.scrollY - 35}px`;
+    // dropdownList.style.left = `${rect.left + window.scrollX}px`;
     dropdownList.style.width = `${inputElement.offsetWidth}px`; // Ensure dropdown matches input width
   };
 

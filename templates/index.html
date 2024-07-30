@@ -17,13 +17,14 @@
         <input
           type="text"
           id="from_currency_input"
-          placeholder="Type currency code..."
+          placeholder="Type a currency code..."
         />
         <select
           name="from_currency"
           id="from_currency"
           aria-labelledby="from_currency_input"
         >
+          <option value="">Or select a currency</option>
           {% for code, name in currencies.items() %}
           <option value="{{ code }}">{{ name }} ({{ code }})</option>
           {% endfor %}
@@ -32,13 +33,14 @@
         <input
           type="text"
           id="to_currency_input"
-          placeholder="Type currency code..."
+          placeholder="Type a currency code..."
         />
         <select
           name="to_currency"
           id="to_currency"
           aria-labelledby="to_currency_input"
         >
+          <option value="">Or select a currency</option>
           {% for code, name in currencies.items() %}
           <option value="{{ code }}">{{ name }} ({{ code }})</option>
           {% endfor %}

@@ -67,6 +67,8 @@ button:hover {
 p.error {
     color: #ff0000;
     font-weight: bold;
+    text-align: center;
+    margin-top: 20px;
 }
 
 /* Style for conversion result */
@@ -93,12 +95,10 @@ h2 {
     border-radius: 4px;
     max-height: 200px;
     overflow-y: auto;
-    width: calc(100% - 22px); /* Match the width of the input */
     z-index: 1000;
     display: none; /* Initially hidden */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow for better visibility */
     top: 100%; /* Position it directly below the input */
-    left: 0; /* Align it with the left edge of the input */
 }
 
 .dropdown-list div {
