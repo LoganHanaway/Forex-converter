@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Currency Converter</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='styles.css') }}"
+    />
+  </head>
+  <body>
+    <h1>Currency Converter</h1>
+    <div class="form-container">
+      <form method="post" action="/">
+        <label for="from_currency">From:</label>
+        <input
+          type="text"
+          id="from_currency_input"
+          placeholder="Type currency code..."
+        />
+        <select
+          name="from_currency"
+          id="from_currency"
+          aria-labelledby="from_currency_input"
+        >
+          {% for code, name in currencies.items() %}
+          <option value="{{ code }}">{{ name }} ({{ code }})</option>
+          {% endfor %}
+        </select>
+        <label for="to_currency">To:</label>
+        <input
+          type="text"
+          id="to_currency_input"
+          placeholder="Type currency code..."
+        />
+        <select
+          name="to_currency"
+          id="to_currency"
+          aria-labelledby="to_currency_input"
+        >
+          {% for code, name in currencies.items() %}
+          <option value="{{ code }}">{{ name }} ({{ code }})</option>
+          {% endfor %}
+        </select>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount" step="0.01" required />
+        <button type="submit">Convert</button>
+      </form>
+    </div>
+
+    {% if converted_amount %}
+    <div class="result-container">
+      <h2>Conversion Result</h2>
+      <p>
+        {{ amount }} {{ from_currency }} is equal to {{ converted_amount }}.
+      </p>
+    </div>
+    {% elif error %}
+    <p class="error">Error: {{ error }}</p>
+    {% endif %}
+
+    <script src="{{ url_for('static', filename='scripts.js') }}"></script>
+  </body>
+</html>
